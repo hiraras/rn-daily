@@ -19,7 +19,7 @@ class Header extends Component {
         <View>
           {showLeftItem && <LeftItem onClick={onLeftItemClick} />}
         </View>
-        <View>
+        <View style={styles.titleCtn}>
           {typeof title === 'string' ? <Text style={styles.title}>{ title }</Text> : <title />}
         </View>
         <View>

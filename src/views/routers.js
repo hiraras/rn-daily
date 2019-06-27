@@ -6,7 +6,7 @@ const AppNavigator = createStackNavigator({
   Index: { screen: Index },
   Home: { screen: Home }
 }, {
-  initialRouteName: 'Home',
+  initialRouteName: 'Index',
   defaultNavigationOptions: {
     header: null,
     headerStyle: {

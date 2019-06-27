@@ -29,7 +29,7 @@ class Index extends Component {
   render() {
     return (
       <Wrapper>
-        <Header showLeftItem={true} title='路由' goBack={this.goBack} />
+        <Header showLeftItem={false} title='路由' goBack={this.goBack} />
         <View style={styles.container}>
           <FlatList
             data={this.state.data}

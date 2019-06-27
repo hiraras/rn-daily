@@ -15,5 +15,12 @@ export default StyleSheet.create({
     fontSize: 18,
     color: '#fff',
     fontWeight: 'bold'
+  },
+  titleCtn: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    flexDirection: 'row',
+    justifyContent: 'center'
   }
 });

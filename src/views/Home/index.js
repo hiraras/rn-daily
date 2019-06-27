@@ -43,9 +43,6 @@ class Home extends Component {
           <TouchableHighlight style={styles.highLightBtn} color="red">
             <Text style={styles.highLightText}>high-light</Text>
           </TouchableHighlight>
-          <TouchableWithoutFeedback style={styles.withoutFeedbackBtn} onLongPress={this.longPressHandler}>
-            <Text style={styles.withoutFeedbackText}>without-feedback</Text>
-          </TouchableWithoutFeedback>
           <Mask show={this.state.showMask} onClose={this.closeMask} />
         </View>
       </Wrapper>
