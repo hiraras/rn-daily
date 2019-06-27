@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react';
-import { View, Text, FlatList, Alert } from 'react-native';
+import { View, FlatList } from 'react-native';
 import NavigatorItem from './components/NavigatorItem';
+import { Wrapper, Header } from '../../components';
 import styles from './styles';
 
 class Index extends Component {
@@ -21,15 +22,22 @@ class Index extends Component {
     this.props.navigation.navigate(pageName);
   }
 
+  goBack = () => {
+    this.props.navigation.goBack();
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <FlatList
-          data={this.state.data}
-          renderItem={({item}) => <NavigatorItem {...item} onClick={this.navigatorClickHandle} />}
-          keyExtractor={(_, index) => String(index)}
-        />
-      </View>
+      <Wrapper>
+        <Header showLeftItem={true} title='路由' goBack={this.goBack} />
+        <View style={styles.container}>
+          <FlatList
+            data={this.state.data}
+            renderItem={({item}) => <NavigatorItem {...item} onClick={this.navigatorClickHandle} />}
+            keyExtractor={(_, index) => String(index)}
+          />
+        </View>
+      </Wrapper>
     )
   }
 }

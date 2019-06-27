@@ -1,14 +1,54 @@
 
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import Styles from './styles';
+import { 
+  View, Text, Alert, TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback,
+} from 'react-native';
+import { Mask, Wrapper, Header, Button } from '../../components';
+import styles from './styles';
 
 class Home extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showMask: true
+    }
+  }
+
+  closeMask = () => {
+    this.setState({
+      showMask: false
+    });
+  }
+
+  longPressHandler = () =>{
+    Alert.alert("long~~~~~press");
+  }
+
+  componentDidMount() {
+  }
+
+  goBack = () => {
+    this.props.navigation.goBack();
+  }
+
   render() {
     return (
-      <View>
-        <Text>this is Home</Text>
-      </View>
+      <Wrapper>
+        <Header showLeftItem={true} title='Home' goBack={this.goBack} />
+        <View style={styles.container}>
+          <TouchableOpacity style={styles.opacityBtn}>
+            <Text style={styles.opacityText}>opacity</Text>
+          </TouchableOpacity>
+          <Button title="click" />
+          <TouchableHighlight style={styles.highLightBtn} color="red">
+            <Text style={styles.highLightText}>high-light</Text>
+          </TouchableHighlight>
+          <TouchableWithoutFeedback style={styles.withoutFeedbackBtn} onLongPress={this.longPressHandler}>
+            <Text style={styles.withoutFeedbackText}>without-feedback</Text>
+          </TouchableWithoutFeedback>
+          <Mask show={this.state.showMask} onClose={this.closeMask} />
+        </View>
+      </Wrapper>
     )
   }
 }
