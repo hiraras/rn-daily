@@ -1,16 +1,18 @@
 
 import React, { Component } from 'react';
 import { 
-  View, Text, Alert, TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback,
+  View, Text, TouchableOpacity, TouchableHighlight, Platform, Image
 } from 'react-native';
 import { Mask, Wrapper, Header, Button } from '../../components';
 import styles from './styles';
+
+const imgURL = require('../../assets/images/01.jpg');
 
 class Home extends Component {
   constructor() {
     super();
     this.state = {
-      showMask: true
+      showMask: false
     }
   }
 
@@ -20,11 +22,27 @@ class Home extends Component {
     });
   }
 
-  longPressHandler = () =>{
-    Alert.alert("long~~~~~press");
+  showMask = () =>{
+    this.setState({
+      showMask: true
+    });
   }
 
   componentDidMount() {
+    console.log(Platform); // android/ios
+  }
+
+  request = () => {
+    fetch('https://i.baidu.com/Top/getTopList')
+      .then((res) => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
   }
 
   goBack = () => {
@@ -39,7 +57,9 @@ class Home extends Component {
           <TouchableOpacity style={styles.opacityBtn}>
             <Text style={styles.opacityText}>opacity</Text>
           </TouchableOpacity>
-          <Button title="click" />
+          <Button title="click" onPress={this.showMask} />
+          <Button title="request" onPress={this.request} />
+          <Button />
           <TouchableHighlight style={styles.highLightBtn} color="red">
             <Text style={styles.highLightText}>high-light</Text>
           </TouchableHighlight>
