@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { 
   View, Text, TouchableOpacity, TouchableHighlight, Platform, Image
 } from 'react-native';
-import { Mask, Wrapper, Header, Button } from '../../components';
+import { Mask, Wrapper, Header, Button, FadeInView } from '../../components';
 import styles from './styles';
 
 const imgURL = require('../../assets/images/01.jpg');
@@ -64,6 +64,9 @@ class Home extends Component {
             <Text style={styles.highLightText}>high-light</Text>
           </TouchableHighlight>
           <Mask show={this.state.showMask} onClose={this.closeMask} />
+          <FadeInView>
+            <Text>this is FadeInView Text</Text>
+          </FadeInView>
         </View>
       </Wrapper>
     )
