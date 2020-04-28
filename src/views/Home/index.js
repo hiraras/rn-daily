@@ -33,6 +33,8 @@ class Home extends Component {
   }
 
   request = () => {
+    // console.log(__DEV__); // true
+    console.log(global);
     fetch('https://i.baidu.com/Top/getTopList')
       .then((res) => {
         return res.json();
